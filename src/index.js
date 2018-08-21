@@ -132,11 +132,7 @@ class App extends React.Component {
 
                 words[this.state.unknown] = word;
 
-                console.log(`Checking word ${i + 1} of ${wordList.length}: ${word}`);
-
                 const { address } = TronTools.accounts.accountFromMnemonicString(words.join(' '));
-
-                console.log(`Word ${word} yielded address ${address}`);
 
                 if(address !== this.state.publicKey)
                     continue;
@@ -150,6 +146,11 @@ class App extends React.Component {
 
                 break;
             }
+
+            this.setState({
+                status: 'We were unable to find the missing word',
+                running: false
+            });
         };
 
         setTimeout(() => {
