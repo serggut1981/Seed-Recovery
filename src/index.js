@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import wordList from 'wordList';
-import Bruteforcer from 'webWorker';
+import Bruteforcer from 'bruteforcer.webworker.js';
 
 import 'index.css';
 
