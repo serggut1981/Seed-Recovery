@@ -2,6 +2,7 @@
   "name": "seed-recovery",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tronwatch.github.io/Seed-Recovery/",
   "dependencies": {
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
