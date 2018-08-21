@@ -154,7 +154,7 @@ class App extends React.Component {
 
         setTimeout(() => {
             startSearch();
-        }, 0);
+        }, 100);
     }
 
     renderButton() {
