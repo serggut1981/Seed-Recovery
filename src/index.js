@@ -2,24 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import wordList from 'wordList';
-import Bruteforcer from 'bruteforcer.webworker.js';
+import Generator from 'generator.worker.js';
 
 import 'index.css';
 
-const webWorker = new Bruteforcer();
+const webWorker = new Generator();
 
 class App extends React.Component {
     constructor(...args) {
         super(...args);
 
         this.state = {
-            promise: false,
             words: new Array(24).fill(''),
             publicKey: '',
             unknown: 0,
             running: false,
-            error: false,
             found: false,
+            error: true,
             status: 'Waiting for valid input'
         };
 
@@ -64,9 +63,13 @@ class App extends React.Component {
         if(!error)
             status = 'Waiting for user to start';
 
+        const { words } = this.state;
+        words[this.state.unknown] = '';
+
         this.setState({
             found: false,
             error,
+            words,
             status
         });
     }
