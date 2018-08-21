@@ -1,0 +1,38 @@
+{
+  "name": "seed-recovery",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "2.0.0-next.3e165448",
+    "tron-http-tools": "https://github.com/TronWatch/tron-http-tools"
+  },
+  "scripts": {
+    "lint": "eslint . --fix",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn lint"
+    }
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
+  }
+}
