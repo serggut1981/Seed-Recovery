@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import wordList from 'wordList';
-import TronTools from 'tron-http-tools';
+import Bruteforcer from 'webWorker';
 
 import 'index.css';
+
+const webWorker = new Bruteforcer();
 
 class App extends React.Component {
     constructor(...args) {
         super(...args);
 
         this.state = {
+            promise: false,
             words: new Array(24).fill(''),
             publicKey: '',
             unknown: 0,
@@ -19,6 +22,36 @@ class App extends React.Component {
             found: false,
             status: 'Waiting for valid input'
         };
+
+        webWorker.addEventListener('message', ({ data: response }) => {
+            const {
+                type,
+                status,
+                word,
+                words
+            } = response;
+
+            switch(type) {
+                case 'stateUpdate':
+                    return this.setState({
+                        status
+                    });
+                case 'fail':
+                    return this.setState({
+                        status: 'We were unable to find the missing word',
+                        running: false
+                    });
+                case 'success':
+                    return this.setState({
+                        status: `Found missing word: ${word}`,
+                        running: false,
+                        found: word,
+                        words
+                    });
+                default:
+                    return console.warn('Invalid message sent from worker:', response);
+            }
+        }, false);
     }
 
     checkForErrors() {
@@ -125,37 +158,11 @@ class App extends React.Component {
             status: 'Searching for missing word. This may take some time'
         });
 
-        const startSearch = () => {
-            for(let i = 0; i < wordList.length; i++) {
-                const word = wordList[i];
-                const words = [ ...this.state.words ];
-
-                words[this.state.unknown] = word;
-
-                const { address } = TronTools.accounts.accountFromMnemonicString(words.join(' '));
-
-                if(address !== this.state.publicKey)
-                    continue;
-
-                this.setState({
-                    status: `Found missing word: ${word}`,
-                    running: false,
-                    found: word,
-                    words
-                });
-
-                break;
-            }
-
-            this.setState({
-                status: 'We were unable to find the missing word',
-                running: false
-            });
-        };
-
-        setTimeout(() => {
-            startSearch();
-        }, 100);
+        webWorker.postMessage({
+            address: this.state.publicKey,
+            words: this.state.words,
+            unknown: this.state.unknown
+        });
     }
 
     renderButton() {
