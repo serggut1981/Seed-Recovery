@@ -37,4 +37,4 @@ TGuhK7nePWEYdkvScq5eXVnZLZAGPA8Taf
 24. history
 ```
 
-Enter the public key, set the missing word to be the 6th and enter the rest of the words. The utility will yield the missing word `adult`.
+Enter the address, set the missing word to be the 6th and enter the rest of the words. The utility will yield the missing word `adult`.

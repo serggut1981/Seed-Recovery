@@ -180,7 +180,7 @@ class App extends React.Component {
                         <p>
                             This utility enables you to recover a missing word in your recovery phrase (mnemonic seed).
 
-                            Enter your public key and select the missing word below. Fill in the rest of the words that you
+                            Enter your address and select the missing word below. Fill in the rest of the words that you
                             have access to and press run.
 
                             It can take a few minutes depending on your hardware. Please be patient.
@@ -189,7 +189,7 @@ class App extends React.Component {
                     <div className='input-row'>
                         <input
                             type='text'
-                            placeholder='Public key'
+                            placeholder='Account address'
                             value={ this.state.publicKey }
                             onChange={ ({ target: { value } }) => this.handleAddressChange(value) }
                             className={ (this.state.publicKey.length !== 34) ? 'invalid' : '' }
