@@ -1,10 +1,12 @@
 {
   "runtime~main.js": "/Seed-Recovery/static/js/runtime~main.e7aa256c.js",
   "runtime~main.js.map": "/Seed-Recovery/static/js/runtime~main.e7aa256c.js.map",
-  "vendors.js": "/Seed-Recovery/static/js/vendors.756e0b84.chunk.js",
-  "vendors.js.map": "/Seed-Recovery/static/js/vendors.756e0b84.chunk.js.map",
-  "main.css": "/Seed-Recovery/static/css/main.829594f6.chunk.css",
-  "main.js": "/Seed-Recovery/static/js/main.9ff38f9f.chunk.js",
-  "main.js.map": "/Seed-Recovery/static/js/main.9ff38f9f.chunk.js.map",
+  "vendors.js": "/Seed-Recovery/static/js/vendors.a5ada54f.chunk.js",
+  "vendors.js.map": "/Seed-Recovery/static/js/vendors.a5ada54f.chunk.js.map",
+  "main.css": "/Seed-Recovery/static/css/main.61641eae.chunk.css",
+  "main.js": "/Seed-Recovery/static/js/main.5525a16c.chunk.js",
+  "main.js.map": "/Seed-Recovery/static/js/main.5525a16c.chunk.js.map",
+  "362e71987217a004fc3f.worker.js": "/Seed-Recovery/362e71987217a004fc3f.worker.js",
+  "362e71987217a004fc3f.worker.js.map": "/Seed-Recovery/362e71987217a004fc3f.worker.js.map",
   "index.html": "/Seed-Recovery/index.html"
 }
