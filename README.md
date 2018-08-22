@@ -32,7 +32,7 @@ TGuhK7nePWEYdkvScq5eXVnZLZAGPA8Taf
 19. spirit
 20. baby
 21. odor
-22. vdeposit
+22. deposit
 23. hill
 24. history
 ```
